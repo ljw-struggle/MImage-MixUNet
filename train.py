@@ -274,11 +274,11 @@ class Trainer(object):
         fig, ax = plt.subplots()
         ax.scatter(np.array(result_num_et_label)[np.array(result_num_et_label)==0], np.array(result_num_et_prediction)[np.array(result_num_et_label)==0], marker='^', color='blue', label='No ET')
         ax.scatter(np.array(result_num_et_label)[np.array(result_num_et_label)!=0], np.array(result_num_et_prediction)[np.array(result_num_et_label)!=0], marker='o', color='red', label='ET')
-        ax.set_xlabel('Prediction ET Number')
-        ax.set_ylabel('Label ET Number')
+        ax.set_xlabel('Label ET Number')
+        ax.set_ylabel('Prediction ET Number')
         ax.set_title('Training Data: ET Number')
         ax.legend()
-        plt.savefig(os.path.join(self.result_dir, 'result_analysis.jpg'))
+        plt.savefig(os.path.join(self.result_dir, 'result_analysis.jpg'), dpi=200)
 
 
 if __name__ == '__main__':
