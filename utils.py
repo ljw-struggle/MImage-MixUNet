@@ -35,7 +35,7 @@ def decompose_image(image, crop_depth=128, origin_depth=155, step=27):
     image_crops = []
 
     num = math.ceil((origin_depth - crop_depth) / step) + 1
-    pad = step * (num - 1) - (origin_depth - crop_depth)
+    pad = int(step * (num - 1) - (origin_depth - crop_depth))
     image_pad = np.lib.pad(image, ((0, 0), (0, 0), (0, pad), (0, 0)), mode='edge')
 
     for i in range(num):

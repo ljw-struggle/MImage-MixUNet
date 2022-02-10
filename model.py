@@ -8,6 +8,8 @@ class down_layer(tf.keras.layers.Layer):
     def __init__(self, filters, last_layer=False):
         super(down_layer, self).__init__()
         self.last_layer = last_layer
+        # self.gnormal_1 = tfa.layers.GroupNormalization(groups=4)
+        # self.gnormal_2 = tfa.layers.GroupNormalization(groups=4)
         self.conv_1 = tf.keras.layers.Conv3D(filters, kernel_size=(3, 3, 3), strides=(1, 1, 1), padding='SAME',
                                              kernel_regularizer=tf.keras.regularizers.l1_l2(l1=0, l2=1e-4))
         self.conv_2 = tf.keras.layers.Conv3D(filters, kernel_size=(3, 3, 3), strides=(1, 1, 1), padding='SAME',
